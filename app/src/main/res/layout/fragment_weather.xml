@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:srlAccentColor="@android:color/white"
+        app:srlEnableLoadMore="false">
+
+        <com.scwang.smartrefresh.layout.header.ClassicsHeader
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srlPrimaryColor="@color/colorPrimary" />
+
+        <com.chenguang.weather.widget.MyScrollView
+            android:id="@+id/scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/rl_header"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp">
+
+                    <com.chenguang.weather.widget.WeatherAnimView
+                        android:id="@+id/weather_header"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/tv_h_curr_temp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginTop="50dp"
+                        android:textColor="#fff"
+                        android:textSize="45dp"
+                        tools:text="23℃" />
+
+                    <TextView
+                        android:id="@+id/tv_address"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_h_curr_temp"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginTop="6dp"
+                        android:textColor="#fff"
+                        android:textSize="16sp"
+                        tools:text="黄浦区 君安大街" />
+
+                    <TextView
+                        android:id="@+id/tv_h_curr_weather"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_address"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginTop="3dp"
+                        android:textColor="#fff"
+                        android:textSize="16sp"
+                        tools:text="晴" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginBottom="8dp">
+
+                        <com.chenguang.weather.widget.DrawableCenterTextView
+                            android:id="@+id/tv_h_aqi"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:drawableLeft="@mipmap/minute_rain_fall_normal"
+                            android:drawablePadding="9dp"
+                            android:paddingVertical="9dp"
+                            android:textColor="#fff"
+                            tools:text="空气优35" />
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginVertical="9dp"
+                            android:background="@android:color/white"></View>
+
+                        <com.chenguang.weather.widget.DrawableCenterTextView
+                            android:id="@+id/tv_h_rain"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:drawableLeft="@mipmap/minute_rain_fall_normal"
+                            android:drawablePadding="9dp"
+                            android:paddingVertical="9dp"
+                            android:textColor="#fff"
+                            tools:text="未来2小时无雨" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rv_outlook"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#fff"
+                    android:paddingHorizontal="22dp"></android.support.v7.widget.RecyclerView>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="12dp"
+                    android:background="@color/color_light_gray"></View>
+
+                <TextView
+                    android:id="@+id/tv_hours_forecast"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#fff"
+                    android:gravity="center"
+                    android:paddingHorizontal="11dp"
+                    android:paddingVertical="15dp"
+                    android:textColor="@color/text_light_gray"
+                    android:textSize="14sp"
+                    tools:text="明天下午16点钟后雨停，转阴，其后小雨" />
+
+                <com.chenguang.weather.widget.MiuiWeatherView
+                    android:id="@+id/weather"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    app:background_color="#ffffff"
+                    app:line_interval="60dp"
+                    app:min_point_height="60dp" />
+
+                <cn.jzvd.JZVideoPlayerStandard
+                    android:id="@+id/player"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="12dp"
+                    android:background="#eee"></View>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rv_advise_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#fff"
+                    android:nestedScrollingEnabled="false"></android.support.v7.widget.RecyclerView>
+            </LinearLayout>
+        </com.chenguang.weather.widget.MyScrollView>
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+    <include layout="@layout/title_bar"></include>
+</RelativeLayout>
